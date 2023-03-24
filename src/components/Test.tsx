@@ -1,6 +1,5 @@
 import { Stage } from "@pixi/react";
-import Northwestern from "./Northwestern";
-
+import Contains from "./Contains";
 const stage_options = {
     width: 640,
     height: 480,
@@ -18,7 +17,8 @@ const Test = () => {
             height={stage_options.height}
             options={stage_options.options}
         >
-            <Northwestern />
+            <Contains xcon={-150} ycon={0} />
+            <Contains xcon={150} ycon={0} />
         </Stage>
     );
 };
