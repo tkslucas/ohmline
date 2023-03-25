@@ -1,22 +1,22 @@
 import "./App.css";
-import Checkbox from "./components/Checkbox";
 import BoolsContextProvider from "./components/BoolsContextProvider";
 import Stage from "./components/Stage";
 import Background from "./components/Background";
+import Menu from "./components/Menu";
 
 function App() {
     return (
-        <BoolsContextProvider>
-            <div>
-                <Stage>
-                    <Background></Background>
-                </Stage>
-                <Checkbox
-                    text="Perpendicular Only"
-                    keyObj="perpendicular"
-                ></Checkbox>
-            </div>
-        </BoolsContextProvider>
+        <div className="app">
+            <h1 className="text-center"> Ohmline</h1>
+            <BoolsContextProvider>
+                <div>
+                    <Stage>
+                        <Background></Background>
+                    </Stage>
+                </div>
+                <Menu></Menu>
+            </BoolsContextProvider>
+        </div>
     );
 }
 

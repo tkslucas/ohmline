@@ -5,7 +5,7 @@ import { LineStyle } from "pixi.js";
 export interface LineProps {
     origin: { x: number; y: number };
     target: { x: number; y: number };
-    linestyle?: LineStyle;
+    linestyle: LineStyle;
 }
 
 const Line = ({ origin, target, linestyle }: LineProps) => {

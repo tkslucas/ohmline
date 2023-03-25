@@ -6,7 +6,7 @@ import useDragLines from "./useDragLines";
 const linestyle = new LineStyle();
 
 linestyle.color = 0;
-linestyle.width = 12;
+linestyle.width = 6;
 linestyle.alpha = 1;
 linestyle.visible = true;
 

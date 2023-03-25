@@ -1,0 +1,25 @@
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app {
+    width: 1280px;
+}
+
+.menu {
+    width: 1280px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 10%;
+}
+
+h1 {
+    width: 1280px;
+}

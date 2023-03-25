@@ -1,14 +1,12 @@
 import { useState, FC, ReactNode } from "react";
-import BoolsContext, { IBools } from "./BoolsContext";
+import BoolsContext, { default_bools, IBools } from "./BoolsContext";
 
 interface Props {
     children: ReactNode;
 }
 
 const BoolsContextProvider: FC<Props> = ({ children }) => {
-    const [state, setState] = useState({
-        perpendicular: false,
-    });
+    const [state, setState] = useState(default_bools);
 
     const update1State = (key: string, newstate: boolean) => {
         let state2 = state;

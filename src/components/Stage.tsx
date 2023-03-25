@@ -23,8 +23,8 @@ const ContextBridge: FC<{
 };
 
 const stage_options = {
-    width: 640,
-    height: 480,
+    width: 1280,
+    height: 720,
     options: {
         resolution: window.devicePixelRatio || 1,
         autoDensity: true,

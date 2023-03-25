@@ -1,3 +1,4 @@
+import { useApp } from "@pixi/react";
 import { useEffect, useState } from "react";
 
 interface MousePosition {
@@ -11,6 +12,7 @@ export interface MouseStatus {
 }
 
 const useMouseStatus = (): MouseStatus => {
+    const app = useApp();
     const [status, setStatus] = useState<MouseStatus>({
         mousePosition: { x: 0, y: 0 },
         clicked: false,
@@ -18,9 +20,13 @@ const useMouseStatus = (): MouseStatus => {
 
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
+            const bounds = app.view.getBoundingClientRect();
             setStatus((prevStatus) => ({
                 ...prevStatus,
-                mousePosition: { x: event.clientX, y: event.clientY },
+                mousePosition: {
+                    x: event.clientX - bounds.x,
+                    y: event.clientY - bounds.y,
+                },
             }));
         };
 

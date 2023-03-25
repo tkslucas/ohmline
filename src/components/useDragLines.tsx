@@ -2,15 +2,26 @@ import { useContext, useState } from "react";
 import useMouseStatus from "./useMouseStatus";
 import { FederatedPointerEvent, LineStyle } from "pixi.js";
 import { LineProps } from "./Line";
+import { useApp } from "@pixi/react";
 
-const lines: Array<LineProps> = [];
+let lines: Array<LineProps> = [];
+
+export const clear = () => {
+    lines = [];
+};
+
 const useDragLines = (linestyle: LineStyle) => {
+    const app = useApp();
     const mouseStatus = useMouseStatus();
     const [dragging, setDragging] = useState(false);
     const onDown = (event: FederatedPointerEvent) => {
         setDragging(true);
+        const bounds = app.view.getBoundingClientRect();
         lines.push({
-            origin: { x: event.clientX, y: event.clientY },
+            origin: {
+                x: event.clientX - bounds.x,
+                y: event.clientY - bounds.y,
+            },
             target: {
                 x: mouseStatus.mousePosition.x,
                 y: mouseStatus.mousePosition.y,
