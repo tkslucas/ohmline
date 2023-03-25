@@ -1,27 +1,27 @@
-import { BlurFilter } from "pixi.js";
-import { Stage, Container, Sprite, Text } from "@pixi/react";
-import { useMemo } from "react";
+import React from "react";
+import Line from "./Line";
+import { MouseStatus } from "./useMouseStatus";
 
-const Canvas = () => {
-    const blurFilter = useMemo(() => new BlurFilter(4), []);
+interface Props {
+    mouseStatus: MouseStatus;
+    origin: { x: number; y: number };
+}
 
+const Canvas = ({ mouseStatus, origin }: Props) => {
+    const { mousePosition, clicked } = mouseStatus;
     return (
-        <Stage options={{ backgroundColor: "0x2980b9" }}>
-            <Sprite
-                image="https://pixijs.io/pixi-react/img/bunny.png"
-                x={400}
-                y={270}
-                anchor={{ x: 0.5, y: 0.5 }}
+        <>
+            <Line
+                origin={{ x: origin.x, y: origin.y }}
+                target={{ x: mousePosition.x, y: mousePosition.y }}
+                linestyle={{ width: 12, color: 0xe8eb34 }}
             />
-
-            <Container x={400} y={330}>
-                <Text
-                    text="Hello World"
-                    anchor={{ x: 0.5, y: 0.5 }}
-                    filters={[blurFilter]}
-                />
-            </Container>
-        </Stage>
+            <Line
+                origin={{ x: origin.x, y: origin.y }}
+                target={{ x: mousePosition.x, y: mousePosition.y }}
+                linestyle={{ width: 5, color: 0 }}
+            />
+        </>
     );
 };
 
