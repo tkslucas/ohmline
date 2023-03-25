@@ -1,6 +1,6 @@
 import { Graphics } from "@pixi/react";
 import { Graphics as GraphicsType } from "pixi.js";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 interface Props {
     origin: { x: number; y: number };
     target: { x: number; y: number };

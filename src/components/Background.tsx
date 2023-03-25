@@ -4,9 +4,6 @@ import useMouseStatus from "./useMouseStatus";
 import { FederatedPointerEvent, Texture } from "pixi.js";
 import Canvas from "./Canvas";
 
-//interactive: true,
-//onpointerdown: onClick,
-
 const Background = () => {
     const mouseStatus = useMouseStatus();
     const [origin, setOrigin] = useState({ x: 0, y: 0 });
