@@ -1,20 +1,14 @@
 import { Graphics } from "@pixi/react";
 import { Graphics as GraphicsType } from "pixi.js";
 import { useCallback } from "react";
-interface Props {
+import { LineStyle } from "pixi.js";
+export interface LineProps {
     origin: { x: number; y: number };
     target: { x: number; y: number };
-    linestyle?: {
-        width?: number;
-        color?: number;
-        alpha?: number;
-        native?: boolean;
-    };
+    linestyle?: LineStyle;
 }
 
-const default_linestyle = { width: 8, color: 0, alpha: 1, native: false };
-
-const Line = ({ origin, target, linestyle = default_linestyle }: Props) => {
+const Line = ({ origin, target, linestyle }: LineProps) => {
     const draw = useCallback(
         (g: GraphicsType) => {
             g.clear();

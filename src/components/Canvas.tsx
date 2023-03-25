@@ -1,25 +1,15 @@
-import Line from "./Line";
+import { LineProps } from "./Line";
+import Lines from "./Lines";
 import { MouseStatus } from "./useMouseStatus";
 
-interface Props {
-    mouseStatus: MouseStatus;
-    origin: { x: number; y: number };
+interface CanvasProps {
+    lines: Array<LineProps>;
 }
-
-const Canvas = ({ mouseStatus, origin }: Props) => {
-    const { mousePosition, clicked } = mouseStatus;
+[];
+const Canvas = ({ lines }: CanvasProps) => {
     return (
         <>
-            <Line
-                origin={{ x: origin.x, y: origin.y }}
-                target={{ x: mousePosition.x, y: mousePosition.y }}
-                linestyle={{ width: 12, color: 0xe8eb34 }}
-            />
-            <Line
-                origin={{ x: origin.x, y: origin.y }}
-                target={{ x: mousePosition.x, y: mousePosition.y }}
-                linestyle={{ width: 5, color: 0 }}
-            />
+            <Lines lines={lines}></Lines>
         </>
     );
 };

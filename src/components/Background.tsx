@@ -1,21 +1,26 @@
-import { useApp, Container, Sprite } from "@pixi/react";
-import { useState } from "react";
-import useMouseStatus from "./useMouseStatus";
-import { FederatedPointerEvent, Texture } from "pixi.js";
+import { useApp, Container, Sprite, useTick } from "@pixi/react";
+import { Texture, LineStyle } from "pixi.js";
 import Canvas from "./Canvas";
+import useDragLines from "./useDragLines";
+
+const linestyle = new LineStyle();
+
+linestyle.color = 0;
+linestyle.width = 12;
+linestyle.alpha = 1;
+linestyle.visible = true;
 
 const Background = () => {
-    const mouseStatus = useMouseStatus();
-    const [origin, setOrigin] = useState({ x: 0, y: 0 });
-    const onClick = (event: FederatedPointerEvent) => {
-        //console.log(event);
-        setOrigin({ x: event.clientX, y: event.clientY });
-    };
     const app = useApp();
-
+    const { lines, onDown, onUp, onMove } = useDragLines(linestyle);
     return (
-        <Container eventMode="static" onpointerdown={onClick}>
-            <Canvas mouseStatus={mouseStatus} origin={origin}></Canvas>
+        <Container
+            eventMode="static"
+            onpointerdown={onDown}
+            onpointerup={onUp}
+            onpointermove={onMove}
+        >
+            <Canvas lines={lines}></Canvas>
             <Sprite
                 texture={Texture.EMPTY}
                 width={app.screen.width}
