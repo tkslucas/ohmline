@@ -1,14 +1,16 @@
+import { DotProps } from "../Geometry/Dot";
 import { LineProps } from "../Geometry/Line";
 import Lines from "../Geometry/Lines";
-
+import Dots from "../Geometry/Dots";
 interface CanvasProps {
-    lines: Array<LineProps>;
+    elements: [Array<LineProps>, Array<DotProps>];
 }
-[];
-const Canvas = ({ lines }: CanvasProps) => {
+
+const Canvas = ({ elements }: CanvasProps) => {
     return (
         <>
-            <Lines lines={lines}></Lines>
+            <Lines lines={elements[0]}></Lines>
+            <Dots dots={elements[1]}></Dots>
         </>
     );
 };

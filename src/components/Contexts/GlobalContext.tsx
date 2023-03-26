@@ -4,12 +4,14 @@ export interface IBools {
     perpendicular: boolean;
     thick: boolean;
     grid: boolean;
+    dots: boolean;
 }
 
 export const default_state = {
     perpendicular: false,
     thick: false,
     grid: false,
+    dots: false,
 };
 
 export interface IGlobalContext {

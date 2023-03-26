@@ -2,17 +2,7 @@ import { Stage as PixiStage } from "@pixi/react";
 import { FC } from "react";
 import GlobalContext from "../Contexts/GlobalContext";
 import ContextBridge from "../Contexts/ContextBridge";
-
-const stage_options = {
-    width: 1920,
-    height: 1080,
-    options: {
-        resolution: window.devicePixelRatio || 1,
-        autoDensity: true,
-        backgroundColor: 0x6495ed,
-        antialias: true,
-    },
-};
+import { stage_options } from "../DefaultOptions";
 
 export const Stage: FC<{ children: JSX.Element }> = ({
     children,

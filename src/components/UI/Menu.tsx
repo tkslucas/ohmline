@@ -11,6 +11,7 @@ const Menu = () => {
                 ></Checkbox>
                 <Checkbox text="Think Lines" keyObj="thick"></Checkbox>
                 <Checkbox text="Snap to Grid" keyObj="grid"></Checkbox>
+                <Checkbox text="Draw dots" keyObj="dots"></Checkbox>
             </div>
             <Button text="Clear" onClick={clear}></Button>
         </div>

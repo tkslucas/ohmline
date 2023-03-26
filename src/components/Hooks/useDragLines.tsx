@@ -10,30 +10,32 @@ export const clear = () => {
     lines = [];
 };
 
-const useDragLines = (linestyle: LineStyle) => {
+const useDragLines = (linestyle: LineStyle, dots: boolean) => {
     const app = useApp();
     const mouseStatus = useMouseStatus();
     const [dragging, setDragging] = useState(false);
-    const onDown = (event: FederatedPointerEvent) => {
-        setDragging(true);
+    const onDownLines = (event: FederatedPointerEvent) => {
         const bounds = app.view.getBoundingClientRect();
-        lines.push({
-            origin: {
-                x: event.clientX - bounds.x,
-                y: event.clientY - bounds.y,
-            },
-            target: {
-                x: mouseStatus.mousePosition.x,
-                y: mouseStatus.mousePosition.y,
-            },
-            linestyle: linestyle,
-        });
+        if (!dots) {
+            setDragging(true);
+            lines.push({
+                origin: {
+                    x: event.clientX - bounds.x,
+                    y: event.clientY - bounds.y,
+                },
+                target: {
+                    x: mouseStatus.mousePosition.x,
+                    y: mouseStatus.mousePosition.y,
+                },
+                linestyle: linestyle,
+            });
+        }
     };
-    const onUp = (event: FederatedPointerEvent) => {
+    const onUpLines = (event: FederatedPointerEvent) => {
         setDragging(false);
     };
 
-    const onMove = (event: FederatedPointerEvent) => {
+    const onMoveLines = (event: FederatedPointerEvent) => {
         if (dragging) {
             lines.slice(-1)[0].target = {
                 x: mouseStatus.mousePosition.x,
@@ -41,7 +43,7 @@ const useDragLines = (linestyle: LineStyle) => {
             };
         }
     };
-    return { lines, onDown, onUp, onMove };
+    return { lines, onDownLines, onUpLines, onMoveLines };
 };
 
 export default useDragLines;
