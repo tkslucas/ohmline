@@ -23,3 +23,5 @@ const new_linestyle_options = () => {
 export const linestyle_options = new_linestyle_options();
 
 export const color_options = 0;
+
+export const G = 1;

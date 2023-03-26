@@ -4,7 +4,7 @@ interface DotsProps {
     dots: Array<DotProps>;
 }
 
-const Lines = ({ dots }: DotsProps) => {
+const Dots = ({ dots }: DotsProps) => {
     return (
         <Container>
             {dots.map((dot, index) => (
@@ -19,4 +19,4 @@ const Lines = ({ dots }: DotsProps) => {
     );
 };
 
-export default Lines;
+export default Dots;
