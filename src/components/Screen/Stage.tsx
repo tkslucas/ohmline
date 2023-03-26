@@ -1,30 +1,11 @@
 import { Stage as PixiStage } from "@pixi/react";
-import Background from "./Background";
-import { FC, ReactNode } from "react";
-import BoolsContext from "./BoolsContext";
-
-// the context bridge:
-const ContextBridge: FC<{
-    children: ReactNode;
-    Context: React.Context<any>;
-    render: Function;
-}> = ({ children, Context, render }) => {
-    return (
-        <Context.Consumer>
-            {(value) =>
-                render(
-                    <Context.Provider value={value}>
-                        {children}
-                    </Context.Provider>
-                )
-            }
-        </Context.Consumer>
-    );
-};
+import { FC } from "react";
+import GlobalContext from "../Contexts/GlobalContext";
+import ContextBridge from "../Contexts/ContextBridge";
 
 const stage_options = {
-    width: 1280,
-    height: 720,
+    width: 1920,
+    height: 1080,
     options: {
         resolution: window.devicePixelRatio || 1,
         autoDensity: true,
@@ -33,14 +14,13 @@ const stage_options = {
     },
 };
 
-// your Stage:
 export const Stage: FC<{ children: JSX.Element }> = ({
     children,
     ...props
 }) => {
     return (
         <ContextBridge
-            Context={BoolsContext}
+            Context={GlobalContext}
             render={(children: JSX.Element) => (
                 <PixiStage
                     width={stage_options.width}

@@ -1,6 +1,5 @@
-import { LineProps } from "./Line";
-import Lines from "./Lines";
-import { MouseStatus } from "./useMouseStatus";
+import { LineProps } from "../Geometry/Line";
+import Lines from "../Geometry/Lines";
 
 interface CanvasProps {
     lines: Array<LineProps>;

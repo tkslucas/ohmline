@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { useContext, useState } from "react";
-import BoolsContext from "./BoolsContext";
+import GlobalContext from "../Contexts/GlobalContext";
 
 interface CheckboxProps {
     text: string;
@@ -8,7 +8,7 @@ interface CheckboxProps {
 }
 const Checkbox = ({ text, keyObj }: CheckboxProps) => {
     const [isChecked, setisChecked] = useState(false);
-    const context = useContext(BoolsContext);
+    const context = useContext(GlobalContext);
 
     const onChange = () => {
         const value = !isChecked;

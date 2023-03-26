@@ -1,6 +1,6 @@
 import Checkbox from "./Checkbox";
 import Button from "./Button";
-import { clear } from "./useDragLines";
+import { clear } from "../Hooks/useDragLines";
 const Menu = () => {
     return (
         <div className="menu">

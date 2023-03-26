@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import useMouseStatus from "./useMouseStatus";
 import { FederatedPointerEvent, LineStyle } from "pixi.js";
-import { LineProps } from "./Line";
+import { LineProps } from "../Geometry/Line";
 import { useApp } from "@pixi/react";
 
 let lines: Array<LineProps> = [];

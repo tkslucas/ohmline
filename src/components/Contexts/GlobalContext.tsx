@@ -6,16 +6,16 @@ export interface IBools {
     grid: boolean;
 }
 
-export const default_bools = {
+export const default_state = {
     perpendicular: false,
     thick: false,
     grid: false,
 };
 
-export interface IBoolsContext {
+export interface IGlobalContext {
     state: IBools;
     update1State: (key: string, newstate: boolean) => void;
 }
 
-const BoolsContext = createContext<IBoolsContext | null>(null);
-export default BoolsContext;
+const GlobalContext = createContext<IGlobalContext | null>(null);
+export default GlobalContext;

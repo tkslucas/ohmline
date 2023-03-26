@@ -1,7 +1,7 @@
 import { useApp, Container, Sprite, useTick } from "@pixi/react";
 import { Texture, LineStyle } from "pixi.js";
 import Canvas from "./Canvas";
-import useDragLines from "./useDragLines";
+import useDragLines from "../Hooks/useDragLines";
 
 const linestyle = new LineStyle();
 

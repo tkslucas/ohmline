@@ -1,6 +1,5 @@
-import { LineStyle } from "pixi.js";
 import { useContext } from "react";
-import BoolsContext, { IBools, IBoolsContext } from "./BoolsContext";
+import GlobalContext, { IGlobalContext } from "../Contexts/GlobalContext";
 import Line, { LineProps } from "./Line";
 
 interface AdjustedLineProps {
@@ -9,7 +8,7 @@ interface AdjustedLineProps {
 }
 
 const parseContext = (
-    context: IBoolsContext | null,
+    context: IGlobalContext | null,
     { index, lines }: AdjustedLineProps
 ) => {
     const [origin, target, linestyle] = [
@@ -41,7 +40,7 @@ const parseContext = (
 };
 
 const AdjustedLine = (props: AdjustedLineProps) => {
-    const context = useContext(BoolsContext);
+    const context = useContext(GlobalContext);
     const { origin, target, linestyle } = parseContext(context, props);
 
     return <Line origin={origin} target={target} linestyle={linestyle}></Line>;
